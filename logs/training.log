@@ -1,0 +1,99 @@
+2025-04-03 15:39:14,026 - root - INFO - Loading and preprocessing data
+2025-04-03 15:39:14,027 - data_process - INFO - Attempting to load data from c:\Users\Triston\anaconda3\envs\2_mle_Containerization\src\MLE\data\preprocessed_train.csv
+2025-04-03 15:39:14,066 - data_process - INFO - Data loaded successfully with shape (19219, 34)
+2025-04-03 15:39:14,067 - data_process - INFO - Starting data preprocessing
+2025-04-03 15:39:14,069 - data_process - INFO - Data preprocessing completed
+2025-04-03 15:39:14,069 - data_process - INFO - Preparing datasets
+2025-04-03 15:39:14,078 - data_process - INFO - Train/test split completed. Train shape: (15375, 27), Test shape: (3844, 27)
+2025-04-03 15:39:14,091 - data_process - INFO - Sample weights calculated
+2025-04-03 15:39:14,099 - data_process - INFO - Feature scaling completed
+2025-04-03 15:39:14,100 - root - INFO - Training TabNetMultiTaskClassifier
+2025-04-03 15:40:44,658 - root - INFO - Evaluating model
+2025-04-03 15:40:44,834 - root - INFO - 
+Defect 0 Report:
+2025-04-03 15:40:44,842 - root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.93      0.98      0.96      3543
+           1       0.42      0.15      0.22       301
+
+    accuracy                           0.92      3844
+   macro avg       0.67      0.57      0.59      3844
+weighted avg       0.89      0.92      0.90      3844
+
+2025-04-03 15:40:44,842 - root - INFO - 
+Defect 1 Report:
+2025-04-03 15:40:44,850 - root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.97      0.97      0.97      3624
+           1       0.56      0.59      0.57       220
+
+    accuracy                           0.95      3844
+   macro avg       0.77      0.78      0.77      3844
+weighted avg       0.95      0.95      0.95      3844
+
+2025-04-03 15:40:44,851 - root - INFO - 
+Defect 2 Report:
+2025-04-03 15:40:44,859 - root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.98      0.98      0.98      3162
+           1       0.90      0.90      0.90       682
+
+    accuracy                           0.96      3844
+   macro avg       0.94      0.94      0.94      3844
+weighted avg       0.96      0.96      0.96      3844
+
+2025-04-03 15:40:44,859 - root - INFO - 
+Defect 3 Report:
+2025-04-03 15:40:44,867 - root - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      0.98      0.99      3744
+           1       0.59      0.84      0.69       100
+
+    accuracy                           0.98      3844
+   macro avg       0.79      0.91      0.84      3844
+weighted avg       0.99      0.98      0.98      3844
+
+2025-04-03 15:40:44,867 - root - INFO - 
+Defect 4 Report:
+2025-04-03 15:40:44,875 - root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.98      0.99      0.99      3759
+           1       0.31      0.24      0.27        85
+
+    accuracy                           0.97      3844
+   macro avg       0.65      0.61      0.63      3844
+weighted avg       0.97      0.97      0.97      3844
+
+2025-04-03 15:40:44,875 - root - INFO - 
+Defect 5 Report:
+2025-04-03 15:40:44,882 - root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.80      0.95      0.87      2918
+           1       0.59      0.24      0.34       926
+
+    accuracy                           0.78      3844
+   macro avg       0.70      0.59      0.60      3844
+weighted avg       0.75      0.78      0.74      3844
+
+2025-04-03 15:40:44,882 - root - INFO - 
+Defect 6 Report:
+2025-04-03 15:40:44,890 - root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.67      0.95      0.79      2495
+           1       0.61      0.14      0.22      1349
+
+    accuracy                           0.67      3844
+   macro avg       0.64      0.55      0.51      3844
+weighted avg       0.65      0.67      0.59      3844
+
+2025-04-03 15:40:44,896 - root - INFO - 
+Micro-average ROC-AUC: 0.9119932091108689
+2025-04-03 15:40:45,104 - root - INFO - Model saved to c:\Users\Triston\anaconda3\envs\2_mle_Containerization\src\MLE\models\tabnet_model.pkl
+2025-04-03 15:40:45,105 - root - INFO - Scaler saved to c:\Users\Triston\anaconda3\envs\2_mle_Containerization\src\MLE\models\scaler.pkl

@@ -1,0 +1,12 @@
+2025-04-03 18:07:02,465 - __main__ - INFO - Starting data processing pipeline
+2025-04-03 18:07:02,466 - __main__ - INFO - Attempting to load data from c:\Users\Triston\anaconda3\envs\2_mle_Containerization\src\MLE\data\train.csv
+2025-04-03 18:07:02,513 - __main__ - INFO - Data loaded successfully with shape (19219, 35)
+2025-04-03 18:07:02,513 - __main__ - INFO - Starting data preprocessing
+2025-04-03 18:07:02,520 - __main__ - INFO - Dropped ID column
+2025-04-03 18:07:02,522 - __main__ - INFO - Data preprocessing completed
+2025-04-03 18:07:02,700 - __main__ - INFO - Saved preprocessed data to c:\Users\Triston\anaconda3\envs\2_mle_Containerization\src\MLE\data\preprocessed_train.csv
+2025-04-03 18:07:02,700 - __main__ - INFO - Preparing datasets
+2025-04-03 18:07:02,710 - __main__ - INFO - Train/test split completed. Train shape: (15375, 27), Test shape: (3844, 27)
+2025-04-03 18:07:02,725 - __main__ - INFO - Sample weights calculated
+2025-04-03 18:07:02,731 - __main__ - INFO - Feature scaling completed
+2025-04-03 18:07:02,732 - __main__ - INFO - Data processing completed successfully

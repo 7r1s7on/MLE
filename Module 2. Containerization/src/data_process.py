@@ -2,6 +2,7 @@ import os
 import logging
 import numpy as np
 import pandas as pd
+import gdown
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.utils.class_weight import compute_sample_weight
@@ -21,6 +22,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+def download_data(url, download_path):
+    gdown.download(url, download_path, quiet=False)
+
 def load_data(data_path):
     """Load and preprocess the data."""
     try:
@@ -37,7 +41,6 @@ def preprocess_data(df):
     try:
         logger.info("Starting data preprocessing")
         
-        # drop id column if exists
         if 'id' in df.columns:
             df.drop(columns='id', inplace=True)
             logger.info("Dropped ID column")
@@ -91,14 +94,28 @@ def prepare_datasets(df, test_size=0.2, random_state=42):
         raise
 
 def main():
-    """Example usage of the data processing functions"""
     try:
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        DATA_PATH = os.path.join(BASE_DIR, 'data', 'train.csv')
-        OUTPUT_PATH = os.path.join(BASE_DIR, 'data', 'preprocessed_train.csv')
+        DATA_PATH = os.path.join(BASE_DIR, 'data')
+
+        # Create data directory if it doesn't exist
+        os.makedirs(DATA_PATH, exist_ok=True)
         
+        data_sources = [
+            ("https://drive.google.com/uc?export=download&id=1v9uryJuwquza5r3XOMVVYameUPpXhsPQ", "train.csv"),
+            ("https://drive.google.com/uc?export=download&id=16s0enePorjXtJOfXsJVVXcYpqUcln_6D", "test.csv")
+        ]
+        
+        for url, filename in data_sources:
+            filepath = os.path.join(DATA_PATH, filename)
+            download_data(url, filepath) 
+
+        TRAIN_DATA_PATH = os.path.join(DATA_PATH, 'train.csv')
+        TEST_DATA_PATH = os.path.join(DATA_PATH, 'test.csv')
+        OUTPUT_PATH = os.path.join(DATA_PATH, 'preprocessed_train.csv')
+
         logger.info("Starting data processing pipeline")
-        df = load_data(DATA_PATH)
+        df = load_data(TRAIN_DATA_PATH)
         df = preprocess_data(df)
         
         # save preprocessed data

@@ -5,13 +5,17 @@ __pycache__/
 
 # Directories
 models/
+data/
 results/
 output/
+logs/
 
 # File Extensions
 *.pth
+*.csv
 *.pyc
 *.ipynb
+*.log
 
 # Environment Variables
 .env

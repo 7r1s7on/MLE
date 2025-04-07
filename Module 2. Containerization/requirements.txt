@@ -1,5 +1,6 @@
-numpy==1.24.3
-pandas==2.0.3
-scikit-learn==1.3.0
+gdown
+numpy
+pandas
+scikit-learn
 pytorch-tabnet
 torch --extra-index-url https://download.pytorch.org/whl/cpu

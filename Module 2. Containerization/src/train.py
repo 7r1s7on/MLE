@@ -42,7 +42,7 @@ def train_model():
     try:
         # paths
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        DATA_PATH = os.path.join(BASE_DIR, 'data', 'preprocessed_train.csv')
+        DATA_PATH = os.path.join(BASE_DIR, 'data', 'train.csv')
         MODEL_SAVE_PATH = os.path.join(BASE_DIR, 'models', 'tabnet_model.pkl')
         SCALER_SAVE_PATH = os.path.join(BASE_DIR, 'models', 'scaler.pkl')
         

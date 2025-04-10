@@ -1,4 +1,4 @@
-# Module 2 - Conteinerization
+# Module 2 - Containerization
 
 ## Introduction
 
@@ -11,12 +11,25 @@ All variables are in form of number. No NA values.
 
 Around 32k samples.
 
+## Prerequisite
+In order to run the project, you should have git, docker.
+
+## Running the project
+
 In order to run the project:
-1. clone the repository.
-2. run data_processing.py script. It will create processed_train.csv.
-3. run train.py.
-4. run inference.py.
-5. build docker train image with `docker build --target trainer -t tabnet-trainer .`. This will create a train image.
-6. execute the `docker run   -v $(pwd)/data:/app/data   -v $(pwd)/m   -v $(pwd)/logs:/app/logs   tabnet-trainer` command to run the container.
-7. build docker inference image with `docker build -t tabnet-inference .`. This will create inference image.
-8. execute `docker run -v "/$(pwd -W)/models:/app/models"            -v "/$(pwd -W)/data:/app/data"            -v "/$(pwd -W)/output:/app/output"            tabnet-inference` command to run the inference container.
+1. open git bash.
+2. clone the project into some folder with a command 
+```bash 
+git clone https://github.com/7r1s7on/MLE.git
+```
+3. ensure the terminal is located at "....../MLE/Module 2. Containerization/".
+4. run command 
+```bash
+chmod +x run_project.sh
+```
+5. execute the script with 
+```bash
+./run_project.sh
+```
+
+After this, the project will start its execution, the resulting prediction.csv file will be located in `.../MLE/Module 2. Containerization` folder.

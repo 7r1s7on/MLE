@@ -18,10 +18,9 @@ RUN useradd -m -u ${UID} user && \
 
 USER user
 WORKDIR /app
-# Add user's local bin to PATH for pip installs using --user flag
 ENV PATH="/home/user/.local/bin:${PATH}" 
 
-# Define standard directories ENV vars (inherited by subsequent stages)
+# Define standard directories ENV vars
 ENV DATA_DIR=/app/data \
     LOG_DIR=/app/logs \
     MODEL_DIR=/app/models
@@ -35,16 +34,17 @@ RUN pip install -r requirements_train.txt
 # Copy all source files needed for training
 COPY --chown=user:user src/ /app/src/
 
-# Declare volumes for potential mounting during runtime
+# Declare volumes for mounting during runtime
 VOLUME ${DATA_DIR}
 VOLUME ${LOG_DIR}
 VOLUME ${MODEL_DIR}
 
-# Default command to run training
 CMD ["python3", "src/train.py"]
 
 # --------inference stage--------
 FROM base AS inference
+
+ENV OUTPUT_DIR=/app/output
 
 COPY --chown=user:user requirements_inference.txt .
 RUN pip install -r requirements_inference.txt
@@ -54,7 +54,6 @@ COPY --from=trainer --chown=user:user /app/src/inference.py /app/src/
 COPY --from=trainer --chown=user:user ${MODEL_DIR}/ ${MODEL_DIR}/
 
 VOLUME ${DATA_DIR}
-# VOLUME ${LOG_DIR} # Optional
+VOLUME ${OUTPUT_DIR}
 
-# Default command to run inference
 CMD ["python3", "src/inference.py"]

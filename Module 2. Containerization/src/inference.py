@@ -47,7 +47,6 @@ def load_model_and_scaler():
         
         model = joblib.load(MODEL_PATH)
         scaler = joblib.load(SCALER_PATH)
-        logger.info(f"Contents of /app/models: {os.listdir('/app/models')}")
         logger.info("Model and scaler loaded successfully")
         return model, scaler
     except Exception as e:

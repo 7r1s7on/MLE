@@ -4,7 +4,7 @@ import joblib
 import numpy as np
 from pytorch_tabnet.multitask import TabNetMultiTaskClassifier
 from sklearn.metrics import roc_auc_score, classification_report
-from data_process import load_data, preprocess_data, prepare_datasets
+from data_process import load_data, preprocess_data, prepare_datasets, download_data
 
 def setup_logging():
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,13 +42,27 @@ def train_model():
     try:
         # paths
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        DATA_PATH = os.path.join(BASE_DIR, 'data', 'train.csv')
+        TRAIN_PATH = os.path.join(BASE_DIR, 'data', 'train.csv')
         MODEL_SAVE_PATH = os.path.join(BASE_DIR, 'models', 'tabnet_model.pkl')
         SCALER_SAVE_PATH = os.path.join(BASE_DIR, 'models', 'scaler.pkl')
+        DATA_PATH = os.path.join(BASE_DIR, 'data')
+
+        # create data directory if it doesn't exist
+        os.makedirs(DATA_PATH, exist_ok=True)
         
+        data_sources = [
+            ("https://drive.google.com/uc?export=download&id=1v9uryJuwquza5r3XOMVVYameUPpXhsPQ", "train.csv"),
+            ("https://drive.google.com/uc?export=download&id=16s0enePorjXtJOfXsJVVXcYpqUcln_6D", "test.csv")
+        ]
+        
+        logger.info("Downloading data")
+        for url, filename in data_sources:
+            filepath = os.path.join(DATA_PATH, filename)
+            download_data(url, filepath) 
+
         # load and preprocess data
         logger.info("Loading and preprocessing data")
-        df = load_data(DATA_PATH)
+        df = load_data(TRAIN_PATH)
         df = preprocess_data(df)
         X_train, X_test, y_train, y_test, sample_weights, scaler = prepare_datasets(df)
         

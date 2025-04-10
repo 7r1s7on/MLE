@@ -112,16 +112,10 @@ def main():
 
         TRAIN_DATA_PATH = os.path.join(DATA_PATH, 'train.csv')
         TEST_DATA_PATH = os.path.join(DATA_PATH, 'test.csv')
-        OUTPUT_PATH = os.path.join(DATA_PATH, 'preprocessed_train.csv')
 
         logger.info("Starting data processing pipeline")
         df = load_data(TRAIN_DATA_PATH)
         df = preprocess_data(df)
-        
-        # save preprocessed data
-        os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-        df.to_csv(OUTPUT_PATH, index=False)
-        logger.info(f"Saved preprocessed data to {OUTPUT_PATH}")
         
         X_train, X_test, y_train, y_test, sample_weights, scaler = prepare_datasets(df)
         logger.info("Data processing completed successfully")

@@ -1,0 +1,11 @@
+FROM jupyter/base-notebook:python-3.14
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir numpy pandas mlflow scikit-learn
+
+COPY /client /app/client
+
+COPY data_loader.py /app/data_loader.py
+
+RUN chmod +x /app/client/experiments/run.sh

@@ -1,0 +1,70 @@
+services:
+  mlflow:
+    image: python:3.11-slim
+    container_name: mlflow_server
+    restart: always
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM python:3.11-slim
+        RUN pip install 'mlflow>=2.0.0,<3.0.0' psycopg2-binary boto3
+    # Command to start the MLflow tracking server
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri /mlflow/data
+      --default-artifact-root /mlflow/artifacts
+    ports:
+      - "5000:5000"  # Expose MLflow UI on host port 5000
+    volumes:
+      - mlflow_data:/mlflow/data  # Persist metadata
+      - mlflow_artifacts:/mlflow/artifacts  # Persist artifacts
+    networks:
+      - app_network
+
+  jupyter:
+    image: jupyter/scipy-notebook:python-3.11
+    container_name: jupyter_server
+    restart: always
+    ports:
+      - "8888:8888"  # Expose Jupyter on host port 8888
+    volumes:
+      - .:/home/jovyan/work  # Mount current directory into Jupyter's work dir
+    working_dir: /home/jovyan/work
+    # Command to start jupyter lab, listening on all interfaces
+    command: start-notebook.sh --NotebookApp.token='' --ip=0.0.0.0 --port=8888 --notebook-dir=/home/jovyan/work
+    environment:
+      # Pass the MLflow tracking URI to the jupyter environment too
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - JUPYTER_ENABLE_LAB=yes
+    networks:
+      - app_network
+    depends_on:
+      - mlflow  # Wait for mlflow service to be healthy
+
+  notebook_runner:
+    container_name: runner_service
+    build:
+      context: .  # Build context is the current directory
+      dockerfile: runner/Dockerfile  # Specify the Dockerfile for the runner
+    restart: no
+    environment:
+      # Provide the MLflow Tracking URI for the notebook execution
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    volumes:
+    # Mount the current directory so papermill can write the output notebook back
+    # and potentially access other local files if needed.
+      - .:/app
+    networks:
+      - app_network
+    depends_on:
+      - mlflow  # Ensure mlflow is started before the runner tries to connect
+
+volumes:
+  mlflow_data:
+  mlflow_artifacts:
+
+networks:
+  app_network:
+    driver: bridge

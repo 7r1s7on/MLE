@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/649448078176251352/2f6a40e5442a4a529fd331f8cb217cec/artifacts
+end_time: 1745336075922
+entry_point_name: ''
+experiment_id: '649448078176251352'
+lifecycle_stage: active
+run_id: 2f6a40e5442a4a529fd331f8cb217cec
+run_name: popular-fowl-772
+run_uuid: 2f6a40e5442a4a529fd331f8cb217cec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745336074116
+status: 3
+tags: []
+user_id: root

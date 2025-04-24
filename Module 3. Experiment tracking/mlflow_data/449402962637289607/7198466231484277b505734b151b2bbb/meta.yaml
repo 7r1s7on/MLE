@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/449402962637289607/7198466231484277b505734b151b2bbb/artifacts
+end_time: 1745336073954
+entry_point_name: ''
+experiment_id: '449402962637289607'
+lifecycle_stage: active
+run_id: 7198466231484277b505734b151b2bbb
+run_name: awesome-turtle-220
+run_uuid: 7198466231484277b505734b151b2bbb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745336063626
+status: 3
+tags: []
+user_id: root

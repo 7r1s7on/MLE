@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/649448078176251352/ecea503de0cd40e0a79542024b3677ed/artifacts
+end_time: 1745336079944
+entry_point_name: ''
+experiment_id: '649448078176251352'
+lifecycle_stage: active
+run_id: ecea503de0cd40e0a79542024b3677ed
+run_name: amusing-fly-43
+run_uuid: ecea503de0cd40e0a79542024b3677ed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745336079293
+status: 3
+tags: []
+user_id: root

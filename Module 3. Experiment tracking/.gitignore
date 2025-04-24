@@ -12,7 +12,7 @@ output/
 logs/
 mlruns/
 mlflow_data/
-mlflow_artifacts
+mlflow_artifacts/
 
 # File Extensions
 *.pth

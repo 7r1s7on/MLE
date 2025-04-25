@@ -1,0 +1,16 @@
+# jupyter/Dockerfile
+
+# Start from the desired base Jupyter image
+FROM jupyter/scipy-notebook:python-3.11
+
+# Switch back to the default jovyan
+USER ${NB_UID}
+
+# Copy your project's requirements file into the container
+COPY ../requirements.txt /tmp/requirements.txt
+
+# Install the specific Python packages needed by your notebook
+RUN python3 -m pip install --no-cache-dir -r /tmp/requirements.txt
+
+# Clean up the requirements file
+# RUN rm /tmp/requirements.txt

@@ -25,7 +25,9 @@ services:
       - app_network
 
   jupyter:
-    image: jupyter/scipy-notebook:python-3.11
+    build:
+      context: .
+      dockerfile: jupyter/dockerfile
     container_name: jupyter_server
     restart: always
     ports:

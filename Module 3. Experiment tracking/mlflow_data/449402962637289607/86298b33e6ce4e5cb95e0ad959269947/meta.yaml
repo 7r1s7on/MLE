@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/449402962637289607/86298b33e6ce4e5cb95e0ad959269947/artifacts
+end_time: 1745603247430
+entry_point_name: ''
+experiment_id: '449402962637289607'
+lifecycle_stage: active
+run_id: 86298b33e6ce4e5cb95e0ad959269947
+run_name: dashing-shrew-881
+run_uuid: 86298b33e6ce4e5cb95e0ad959269947
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745603236026
+status: 3
+tags: []
+user_id: root

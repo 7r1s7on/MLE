@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/449402962637289607/845bbc5198634f9eabfc676a80ffefd0/artifacts
+end_time: 1745522086842
+entry_point_name: ''
+experiment_id: '449402962637289607'
+lifecycle_stage: active
+run_id: 845bbc5198634f9eabfc676a80ffefd0
+run_name: upset-hen-520
+run_uuid: 845bbc5198634f9eabfc676a80ffefd0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745522075956
+status: 3
+tags: []
+user_id: root

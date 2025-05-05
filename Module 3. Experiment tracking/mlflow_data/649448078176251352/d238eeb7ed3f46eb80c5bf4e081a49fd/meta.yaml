@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/649448078176251352/d238eeb7ed3f46eb80c5bf4e081a49fd/artifacts
+end_time: 1745522088853
+entry_point_name: ''
+experiment_id: '649448078176251352'
+lifecycle_stage: active
+run_id: d238eeb7ed3f46eb80c5bf4e081a49fd
+run_name: judicious-zebra-414
+run_uuid: d238eeb7ed3f46eb80c5bf4e081a49fd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745522086986
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/649448078176251352/4f863825baca49b083b3613bfc36685d/artifacts
+end_time: 1745603247979
+entry_point_name: ''
+experiment_id: '649448078176251352'
+lifecycle_stage: active
+run_id: 4f863825baca49b083b3613bfc36685d
+run_name: sincere-cub-523
+run_uuid: 4f863825baca49b083b3613bfc36685d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745603247594
+status: 3
+tags: []
+user_id: root

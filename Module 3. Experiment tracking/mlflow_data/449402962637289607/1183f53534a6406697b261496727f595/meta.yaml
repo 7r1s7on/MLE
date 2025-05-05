@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/449402962637289607/1183f53534a6406697b261496727f595/artifacts
+end_time: 1745603339055
+entry_point_name: ''
+experiment_id: '449402962637289607'
+lifecycle_stage: active
+run_id: 1183f53534a6406697b261496727f595
+run_name: basic_logistic_regression_with_2_features
+run_uuid: 1183f53534a6406697b261496727f595
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745603337542
+status: 3
+tags: []
+user_id: jovyan

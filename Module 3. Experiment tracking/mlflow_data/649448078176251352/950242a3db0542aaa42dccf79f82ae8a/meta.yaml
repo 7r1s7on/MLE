@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/649448078176251352/950242a3db0542aaa42dccf79f82ae8a/artifacts
+end_time: 1745603248949
+entry_point_name: ''
+experiment_id: '649448078176251352'
+lifecycle_stage: active
+run_id: 950242a3db0542aaa42dccf79f82ae8a
+run_name: bold-crow-838
+run_uuid: 950242a3db0542aaa42dccf79f82ae8a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745603248246
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/649448078176251352/c0e0601e9d804d20bff7ca47f5e55197/artifacts
+end_time: 1745522089750
+entry_point_name: ''
+experiment_id: '649448078176251352'
+lifecycle_stage: active
+run_id: c0e0601e9d804d20bff7ca47f5e55197
+run_name: stately-shrew-145
+run_uuid: c0e0601e9d804d20bff7ca47f5e55197
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745522089113
+status: 3
+tags: []
+user_id: root

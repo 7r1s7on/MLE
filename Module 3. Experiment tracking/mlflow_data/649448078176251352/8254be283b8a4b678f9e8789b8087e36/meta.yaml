@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/649448078176251352/8254be283b8a4b678f9e8789b8087e36/artifacts
+end_time: 1745522089750
+entry_point_name: ''
+experiment_id: '649448078176251352'
+lifecycle_stage: active
+run_id: 8254be283b8a4b678f9e8789b8087e36
+run_name: sassy-stork-826
+run_uuid: 8254be283b8a4b678f9e8789b8087e36
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745522089113
+status: 3
+tags: []
+user_id: root

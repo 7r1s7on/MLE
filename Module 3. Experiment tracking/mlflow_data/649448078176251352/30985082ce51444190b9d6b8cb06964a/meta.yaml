@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/artifacts/649448078176251352/30985082ce51444190b9d6b8cb06964a/artifacts
+end_time: 1745603248949
+entry_point_name: ''
+experiment_id: '649448078176251352'
+lifecycle_stage: active
+run_id: 30985082ce51444190b9d6b8cb06964a
+run_name: thundering-doe-511
+run_uuid: 30985082ce51444190b9d6b8cb06964a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745603248246
+status: 3
+tags: []
+user_id: root

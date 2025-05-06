@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+.vscode
+
+# data
+/data/
+*.csv
+
+# models
+/models/
+
+# jupyter notebooks
+*.ipynb
+
+# Installer logs
+pip-log.txt

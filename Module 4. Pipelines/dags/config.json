@@ -1,0 +1,21 @@
+{
+    "student_perfomance_dag":
+    {
+        "default_args" : {
+            "owner": "airflow",
+            "depends_on_past": true,
+            "email": "airflow@example.com",
+            "email_on_failure": true,
+            "email_on_retry": false,
+            "retries": 1,
+            "retry_delay_minutes": 1,
+            "retry_exponential_backoff": false,
+            "max_retry_delay_hours": 1,
+            "start_date_str": "2024-05-05"
+        },
+        "processing_params": {
+            "test_size": 0.2,
+            "random_state": 42
+        }
+    }
+}

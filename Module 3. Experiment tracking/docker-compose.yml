@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile_inline: |
         FROM python:3.11-slim
-        RUN pip install 'mlflow>=2.11.0,<2.12.0'
+        RUN pip install 'mlflow>=2.11.0,<2.12.0' psycopg2-binary boto3
     # Command to start the MLflow tracking server
     command: >
       mlflow server

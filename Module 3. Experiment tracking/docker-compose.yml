@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile_inline: |
         FROM python:3.11-slim
-        RUN pip install 'mlflow>=2.0.0,<3.0.0' psycopg2-binary boto3
+        RUN pip install 'mlflow>=2.11.0,<2.12.0'
     # Command to start the MLflow tracking server
     command: >
       mlflow server
@@ -15,16 +15,19 @@ services:
       --port 5000
       --backend-store-uri /mlflow/data
       --default-artifact-root /mlflow/artifacts
+      --serve-artifacts
     ports:
       - "5000:5000"  # Expose MLflow UI on host port 5000
     volumes:
-      - mlflow_data:/mlflow/data  # Persist metadata
-      - mlflow_artifacts:/mlflow/artifacts  # Persist artifacts
+      - ./mlflow_data:/mlflow/data  # Persist metadata
+      - ./mlflow_artifacts:/mlflow/artifacts  # Persist artifacts
     networks:
       - app_network
 
   jupyter:
-    image: jupyter/scipy-notebook:python-3.11
+    build:
+      context: .
+      dockerfile: jupyter/dockerfile
     container_name: jupyter_server
     restart: always
     ports:
@@ -52,6 +55,8 @@ services:
     environment:
       # Provide the MLflow Tracking URI for the notebook execution
       - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - MLFLOW_ENABLE_DEBUG_LOGS=true
+      - MLFLOW_LOGGING_LEVEL=DEBUG
     volumes:
     # Mount the current directory so papermill can write the output notebook back
     # and potentially access other local files if needed.

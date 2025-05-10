@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 .vscode
+.ipynb_checkpoints
+nb_output.ipynb
 
 # Directories
 models/
@@ -10,6 +12,8 @@ results/
 output/
 logs/
 mlruns/
+mlflow_data/
+mlflow_artifacts/
 
 # File Extensions
 *.pth

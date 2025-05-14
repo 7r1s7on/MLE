@@ -1,0 +1,27 @@
+FROM python:3.9-slim
+
+# set working directory
+WORKDIR /app
+
+# copy requirements first to leverage Docker cache
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# copy the application code and artifacts
+# the batch pipeline is responsible for ensuring artifacts/ is populated
+COPY ./calorie_predictor /app/calorie_predictor
+COPY ./artifacts /app/artifacts 
+# setup.py is not strictly needed here if we copy the package directly, 
+# but if we were installing it, it would be.
+
+# Expose the port the app runs on
+EXPOSE 8000
+
+# command to run the application using Gunicorn for production
+# ensure calorie_predictor.api:app points to your Flask app instance
+# the number of workers can be tuned. General rule: 2-4 x NUM_CORES.
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "calorie_predictor.api:app"]
+
+# healthcheck (optional but good practice)
+# HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+#   CMD curl -f http://localhost:8000/health || exit 1

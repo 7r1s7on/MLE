@@ -1,0 +1,32 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install system dependencies
+# - gdown needs unzip and other tools that might not be in slim
+# - cron for scheduler
+# - docker-cli for building the API image from within this container
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    unzip \
+    curl \
+    gnupg \
+    cron \
+    docker.io
+
+# copy requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# copy the entire project
+COPY . .
+
+# install the package itself in editable mode (good for development)
+RUN pip install -e .
+
+# create necessary directories
+RUN mkdir -p /app/data /app/artifacts
+
+# Entrypoint (optional, can be overridden)
+# CMD ["bash"]
+# Or to run the batch pipeline directly:
+# CMD ["python", "-m", "calorie_predictor.batch_pipeline"]

@@ -11,7 +11,7 @@ from .constants import PROCESSED_DATA_PATH
 
 class StudentPerfomanceDataPrep:
     def __init__(self, scaler=None, test_size=0.2, random_state=42):
-        self.scaler = scaler # Scaler object, e.g., StandardScaler()
+        self.scaler = scaler
         self.test_size = test_size
         self.random_state = random_state
         # Internal state variables - these will be managed by task wrappers in Airflow
@@ -40,10 +40,7 @@ class StudentPerfomanceDataPrep:
         categorical_col = self.data.select_dtypes(include=["object"]).columns.tolist()
         numerical_col = self.data.select_dtypes(include=["number"]).columns.tolist()
 
-        # Handle NaNs in categorical columns (dropna might be too aggressive, consider mode imputation)
-        # Original: self.data[categorical_col] = self.data[categorical_col].dropna()
-        # This drops rows if ANY categorical column has NaN. Better to impute or be specific.
-        # For now, let's fill with 'Unknown' or mode. Let's use mode.
+        # Handle NaNs in categorical columns
         for col in categorical_col:
             if self.data[col].isnull().any():
                 mode_val = self.data[col].mode()

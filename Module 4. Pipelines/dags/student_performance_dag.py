@@ -13,7 +13,6 @@ from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago # Useful for dynamic start_dates if not fixed
 
 # --- Path Setup ---
-# Assuming DAG file is in /opt/airflow/dags and src is in /opt/airflow/src
 DAG_DIR = os.path.dirname(__file__)
 ROOT_DIR = os.path.abspath(os.path.join(DAG_DIR, "..")) # /opt/airflow
 sys.path.append(ROOT_DIR)
@@ -139,7 +138,7 @@ with DAG(
     "Student_Performance_DAG",
     default_args=default_args,
     description="DAG to download, process, and prepare student performance data",
-    schedule_interval=timedelta(days=1), # Changed from 5 minutes
+    schedule_interval=timedelta(days=1),
     catchup=False, # Typically good for production DAGs unless backfills are intended
     tags=['student_data', 'ml_pipeline'],
 ) as dag:
